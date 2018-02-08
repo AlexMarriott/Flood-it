@@ -45,11 +45,10 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
 
 
         if (gameMode == 0 && colours == 0 && gridSize ==0) {
-            grid = new int[gameSettings.DEFAULT_HEIGHT][gameSettings.DEFAULT_WIDTH];
-            visited = new boolean[gameSettings.DEFAULT_HEIGHT][gameSettings.DEFAULT_WIDTH];
+            grid = new int[20][20];
+            visited = new boolean[20][20];
             setContentView(R.layout.sm_activity_game);
             textView = findViewById(R.id.smRoundsRemainingTextView);
-            roundMode = 1;
         }
         else if (gameMode != 0) {
             grid = new int[gameMode][gameMode];
@@ -111,6 +110,7 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
             }
         }
         gameSettings = new GameLogic(grid, visited, options);
+        roundMode = gameSettings.random(1,3);
         gameSettings.setRound(roundMode);
 
         textView.setText(String.valueOf(gameSettings.getRound()));

@@ -2,15 +2,7 @@ package com.example.alexm.floodit;
 
 
 public class GameLogic {
-    /**
-     * The default amount of columns in the game (horizontal "pixel" amount).
-     */
-    public static int DEFAULT_WIDTH = 30;
 
-    /**
-     * The default amount of rows in the game (vertical "pixel" amount)
-     */
-    public static int DEFAULT_HEIGHT = 30;
 
     private static int[][] mgrid; //Default value of 15 (medium)
     private int roundMode = 0;
@@ -97,7 +89,7 @@ public class GameLogic {
 
 
     //Created own random because the standard built in random for java is bad.
-    private static int random(int min, int max) {
+     int random(int min, int max) {
         return (int) (min + (Math.random() * max));
 
     }

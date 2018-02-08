@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +10,7 @@
     android:background="@color/win">
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imgWinner"
         android:layout_width="wrap_content"
         android:layout_height="269dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,51 +18,78 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/winner" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/btnReturnToMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player Name"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="301dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:text="Return To Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/winPlayerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rounds Taken"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="346dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imgWinner"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="23dp"
+        android:text="Player Name" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/winPlayerScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Points"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="398dp" />
+        android:layout_alignLeft="@+id/winPlayerName"
+        android:layout_alignStart="@+id/winPlayerName"
+        android:layout_below="@+id/winPlayerName"
+        android:layout_marginTop="33dp"
+        android:text="Score" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/winPlayerRounds"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
-        tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="301dp" />
+        android:layout_above="@+id/btnReturnToMenu"
+        android:layout_alignLeft="@+id/winPlayerScore"
+        android:layout_alignStart="@+id/winPlayerScore"
+        android:layout_marginBottom="30dp"
+        android:text="Rounds Remaining" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/winName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rounds"
-        tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="346dp" />
+        android:layout_alignBaseline="@+id/winPlayerName"
+        android:layout_alignBottom="@+id/winPlayerName"
+        android:layout_marginLeft="86dp"
+        android:layout_marginStart="86dp"
+        android:layout_toEndOf="@+id/winPlayerRounds"
+        android:layout_toRightOf="@+id/winPlayerRounds"
+        android:text="Name" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/winScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Points"
-        tools:layout_editor_absoluteX="196dp"
-        tools:layout_editor_absoluteY="398dp" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_alignBottom="@+id/winPlayerScore"
+        android:layout_alignLeft="@+id/winName"
+        android:layout_alignStart="@+id/winName"
+        android:text="Score" />
+
+    <TextView
+        android:id="@+id/winRounds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/winScore"
+        android:layout_alignStart="@+id/winScore"
+        android:layout_alignTop="@+id/winPlayerRounds"
+        android:text="Rounds" />
+
+</RelativeLayout>
