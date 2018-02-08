@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".StartScreen"
-            android:label="@string/title_activity_start_screen"
+            android:label="@string/Floodit"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,17 +40,17 @@
         <activity
             android:name=".Rules"
             android:label="@string/title_activity_rules"
-            android:parentActivityName=".Settings"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.alexm.floodit.Settings" />
+                android:value="com.example.alexm.floodit.Rules" />
         </activity>
         <activity
             android:name=".Game"
             android:label="@string/title_activity_game"
             android:parentActivityName=".MainMenu"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alexm.floodit.MainMenu" />
@@ -59,7 +59,8 @@
             android:name=".WinLose"
             android:label="@string/title_activity_win_lose"
             android:parentActivityName=".Game"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.alexm.floodit.Game" />
