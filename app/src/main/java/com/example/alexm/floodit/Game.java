@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 /**
@@ -44,8 +42,6 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
         int gameMode = getIntent().getIntExtra("GameMode", 0);
 
         String playername = getIntent().getStringExtra("PlayerName");
-
-
 
 
         if (gameMode == 0 && colours == 0 && gridSize ==0) {

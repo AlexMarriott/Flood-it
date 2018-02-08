@@ -1,6 +1,5 @@
 package com.example.alexm.floodit;
 
-import android.widget.TextView;
 
 public class GameLogic {
     /**
