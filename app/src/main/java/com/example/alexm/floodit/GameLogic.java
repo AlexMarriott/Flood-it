@@ -37,8 +37,6 @@ public class GameLogic {
         setRound(roundMode);
 
     }
-    //creates an two, two dimensional arrays which are used to create the grid and check the visited tiles.
-
 
     public int getGridColour(int x, int y) {
         return mgrid[x][y];
