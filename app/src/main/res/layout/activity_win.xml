@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.alexm.floodit.WinLose"
-    android:background="@color/win">
-
+    tools:context="com.example.alexm.floodit.WinLose">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +19,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_win_lose" />
+    <include layout="@layout/content_win" />
 
 </android.support.design.widget.CoordinatorLayout>

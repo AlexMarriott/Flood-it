@@ -25,6 +25,7 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
     private int gameMode;
     private boolean gameModeSelected = false;
     private Spinner spinner;
+
     Spinner colourSpinner;
     Spinner gridSizeSpinner;
     Spinner gameSpinner;
@@ -33,6 +34,7 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        playerName = getIntent().getStringExtra("PlayerName");
 
         //sample code used from https://developer.android.com/guide/topics/ui/controls/spinner.html
 
@@ -64,12 +66,15 @@ public class MainMenu extends AppCompatActivity implements AdapterView.OnItemSel
         gridSizeSpinner.setAdapter(adapterSizeOfGrid);
         gridSizeSpinner.setOnItemSelectedListener(this);
 
+
+
     }
     public void onItem(View view){
         //In this method, we get the settings options from the main menu and pass them through to the game activity
         if (view.getId() == R.id.startGameBtn){
             Intent intent = new Intent(getBaseContext(), Game.class);
-            intent.putExtra("Player Name", getIntent().getDataString());
+            intent.putExtra("PlayerName", playerName);
+
             if (gameModeSelected){
                 intent.putExtra("GameMode", gameMode);
                 startActivity(intent);

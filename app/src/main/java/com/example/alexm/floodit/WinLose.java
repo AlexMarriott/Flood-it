@@ -9,9 +9,9 @@ public class WinLose extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getIntent().getBooleanExtra("won", true)){
-            setContentView(R.layout.activity_win);
+            setContentView(R.layout.content_win);
         }else if(!getIntent().getBooleanExtra("won",true)){
-            setContentView(R.layout.activity_lost);
+            setContentView(R.layout.content_lose);
         }
     }
 

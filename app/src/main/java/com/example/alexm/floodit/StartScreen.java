@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -16,18 +17,19 @@ public class StartScreen extends AppCompatActivity {
      * @version 1.0
      * @since 06/01/2018
      */
-    private String playerName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
 
     }
-
     public void onItem(View view) {
         if (view.getId() == R.id.startGameBtn) {
             Intent intent = new Intent(getBaseContext(), MainMenu.class);
-            intent.putExtra("Player Name", R.id.textViewPlayerName);
+            EditText editext = findViewById(R.id.editText);
+            String playername = editext.getText().toString();
+            intent.putExtra("PlayerName", playername);
             startActivity(intent);
         } else {
             Toast.makeText(getApplicationContext(), "Could not find the buttons, something went wrong.",

@@ -9,7 +9,8 @@ import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
     private GameLogic gameSettings;
     private int roundMode;
     private TextView textView;
+    private TextView playerTextView;
     private boolean[][] visited;
 
     @Override
@@ -40,6 +42,9 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
         int gridSize = getIntent().getIntExtra("GridSize", 0);
 
         int gameMode = getIntent().getIntExtra("GameMode", 0);
+
+        String playername = getIntent().getStringExtra("PlayerName");
+
 
 
 
@@ -113,6 +118,9 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
         gameSettings.setRound(roundMode);
 
         textView.setText(String.valueOf(gameSettings.getRound()));
+
+        playerTextView = findViewById(R.id.PlayerNameTextView);
+        playerTextView.setText(playername);
     gridView.getHolder().addCallback(this);
     }
 

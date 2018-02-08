@@ -13,10 +13,7 @@ public class GameLogic {
      */
     public static int DEFAULT_HEIGHT = 30;
 
-
-    private GameGridView gridView;
     private static int[][] mgrid; //Default value of 15 (medium)
-    private int roundCounter;
     private int roundMode = 0;
     private boolean[][] mvisited;
     private final int[] roundCap = {20, 30, 40};
@@ -55,8 +52,6 @@ public class GameLogic {
         return mvisited;
     }
 
-    public void setVisitedTrue(int x, int y) {
-    }
 
     /**
      * Implement this function to return the current game round (starting with 1, every flood
@@ -111,54 +106,6 @@ public class GameLogic {
     }
 
     /**
-     * Implement this function to return the current game round (starting with 1, every flood
-     * operation updates the round.
-     *
-     * @return The current round
-
-    public int getRound() {
-    return roundTotal;
-    }
-
-    public void removeRound(){
-    roundTotal = roundTotal - 1;
-    }
-    public void setRound(int gameMode){
-
-    if (gameMode == 1){
-    roundTotal = roundCap[0];
-    }else if (gameMode == 2){
-    roundTotal = roundCap[1];
-    }else if(gameMode == 3){
-    roundTotal = roundCap[2];
-    }
-    }*/
-
-
-    /**
-     * Set the colour at position (x,y) to the colour identified by the colour parameter
-     *
-     * @param x      The column to change
-     * @param y      The row to change
-     * @param colour The new colour.
-     */
-    protected void setColor(int x, int y, int colour) {
-        ;
-    }
-
-    /**
-     * Get the colour at position (x,y)
-     *
-     * @param x The column to change
-     * @param y The row to change
-     * @return The colour at the coordinates.
-     */
-    public int getColor(int x, int y) {
-        return 0;
-    }
-
-
-    /**
      * Determine whether the game has been won.
      *
      * @return <code>true</code> if won, <code>false</code> if the game has not yet been won.
@@ -178,101 +125,3 @@ public class GameLogic {
         return hasWon;
     }
 }
-
-
-
-
-
-
-/*
-    /**
-     * Get the set of objects that listen to game changes. You need this function to implement the
-     * code that informs the listeners (loop...)
-     * @return The set of listeners.
-
-    protected Set<GamePlayListener> getGamePlayListeners() {
-        return mGamePlayListeners;
-    }
-
-    /**
-     * Remove the given listener from the game play listener set.
-     * @param listener Listener to remove
-
-    public void removeGamePlayListener(final GamePlayListener listener) {
-        mGamePlayListeners.remove(listener);
-    }
-
-    /**
-     * Add the given listener to the set of listeners that want to listen to game updates.
-     * @param listener The listener to add (if it is not there yet).
-
-    public void addGamePlayListener(final GamePlayListener listener) {
-        mGamePlayListeners.add(listener);
-    }
-
-    /**
-     * Get the set of objects that listen to game wins. You need this function to implement the
-     * code that informs the listeners (loop...). The listener you register can be where you trigger a
-     * dialogue to inform the user.
-     *
-     * @return The set of listeners.
-
-    protected Set<GameWinListener> getGameWinListeners() {
-        return mGameWinListeners;
-    }
-
-    /**
-     * Remove the given listener from the game win listener set.
-     * @param gameWinListener Listener to remove
-
-    public void removeGameWinListener(final GameWinListener gameWinListener) {
-        mGameWinListeners.remove(gameWinListener);
-    }
-
-    /**
-     * Add the given listener to the set of listeners that want to listen to game wins.
-     * @param gameWinListener The listener to add (if it is not there yet).
-
-    public void addGameWinListener(final GameWinListener gameWinListener) {
-        mGameWinListeners.add(gameWinListener);
-    }
-
-    /**
-     * You should implement this function to call the gamePlayListeners with the given round.
-     *
-     * @param round The round that the game is in.
-
-    void notifyMove(final int round) {
-
-    }
-
-    /**
-     * You should implement this function to call the gameWinListeners with the given round.
-     *
-     * @param round The round that the game is in / the amount of rounds used.
-
-    void notifyWin(final int round) {
-
-    }
-       /**
-     * A set of objects that have registered to be informed when the game state changes (after a play
-     * has been made).
-
-private Set<GamePlayListener> mGamePlayListeners = new HashSet<>();
-
-    /**
-     * A set of objects that have registered to be informed when the game has been won.
-
-    private Set<GameWinListener> mGameWinListeners = new HashSet<>();
-
-
-/**
- * Function to use to actually implement a move (in the game the flow point is static (top left).
- * Implement this function to do a flood fill from the location with the given colour.
- *
- * @param clr The colour to fill with.
-
-void playColour(final int clr) {
-
-}
-*/
