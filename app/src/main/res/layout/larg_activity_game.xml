@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.alexm.floodit.Game">
+
+    <com.example.alexm.floodit.GameGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="405dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+        android:id="@+id/ColourButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="97dp"
+        android:layout_weight="0"
+        android:background="@android:color/background_dark"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/greenBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/purpleBtn"
+            android:layout_toStartOf="@+id/purpleBtn"
+            android:background="@color/green"
+            android:onClick="onItem"
+            android:text="@string/green" />
+
+        <Button
+            android:id="@+id/blueBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/greyBtn"
+            android:layout_toRightOf="@+id/greyBtn"
+            android:background="@color/blue"
+            android:onClick="onItem"
+            android:text="@string/blue">
+
+        </Button>
+
+        <Button
+            android:id="@+id/yellowBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/greyBtn"
+            android:layout_toRightOf="@+id/greyBtn"
+            android:background="@color/yellow"
+            android:onClick="onItem"
+            android:text="@string/yellow" />
+
+        <Button
+            android:id="@+id/purpleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/orangeBtn"
+            android:layout_toRightOf="@+id/orangeBtn"
+            android:background="@color/purple"
+            android:onClick="onItem"
+            android:scrollbars="horizontal"
+            android:text="@string/purple" />
+
+        <Button
+            android:id="@+id/greyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/purpleBtn"
+            android:layout_toRightOf="@+id/purpleBtn"
+            android:background="@color/grey"
+            android:elevation="0dp"
+            android:onClick="onItem"
+            android:text="@string/grey" />
+
+        <Button
+            android:id="@+id/orangeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@color/orange"
+            android:onClick="onItem"
+            android:text="@string/orange" />
+
+        <Button
+            android:id="@+id/redBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/greenBtn"
+            android:layout_toRightOf="@+id/greenBtn"
+            android:background="@color/red"
+            android:onClick="onItem"
+            android:text="@string/red" />
+
+        <Button
+            android:id="@+id/pinkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/purpleBtn"
+            android:layout_toEndOf="@+id/purpleBtn"
+            android:layout_toRightOf="@+id/purpleBtn"
+            android:background="@color/pink"
+            android:onClick="onItem"
+            android:text="@string/pink" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/smPlayerNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Players Name:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/largRoundsRemainingTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="Rounds Remaining:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
+
+</LinearLayout>
