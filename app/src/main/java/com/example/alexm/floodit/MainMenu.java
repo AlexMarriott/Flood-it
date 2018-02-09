@@ -17,7 +17,7 @@ import android.widget.Toast;
  * <h1>MainMenu</h1>
  * add a description of the class
  *
- * @author Alex Marriott s4816928
+ * @author Alex Marriott s4816928§
  * @version 1.0
  * @since 06/01/2018
  */
@@ -32,8 +32,8 @@ public class MainMenu extends AppCompatActivity {
     private RadioButton radioBtnHard;
     private CompoundButton customSwitch;
     private String prefsFile = "FloodGamePrefs";
-    private SharedPreferences settings = getSharedPreferences(prefsFile, 0);
-    private SharedPreferences.Editor editor = settings.edit();
+    private SharedPreferences settings;
+    private SharedPreferences.Editor editor;
     private RadioGroup grpRadioButtons;
 
 
@@ -44,6 +44,8 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        settings = getSharedPreferences(prefsFile, 0);
+        editor = settings.edit();
 
         radioBtnEasy = findViewById(R.id.radioButtonEasyMode);
         radioBtnMedium = findViewById(R.id.radioButtonMediumMode);
@@ -57,14 +59,56 @@ public class MainMenu extends AppCompatActivity {
         adapterNumOfColours.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         colourSpinner.setAdapter(adapterNumOfColours);
-        colourSpinner.setOnItemSelectedListener(this);
+        colourSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (parent.getId()) {
+                    case R.id.idNumOfColours:
+                        setColourAmount(colourSpinner.getSelectedItem().toString());
+                        colourSpinner.setSelection(position);
+                        if (customSwitch.isChecked()) {
+                            customSwitch.performClick();
+                        }
+                        //onCheckedChanged(customSwitch, false);
+                        editor.remove("GameMode");
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         ArrayAdapter<CharSequence> adapterSizeOfGrid = ArrayAdapter.createFromResource(this,
                 R.array.sizeOfGrid, android.R.layout.simple_spinner_item);
         adapterSizeOfGrid.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         gridSizeSpinner.setAdapter(adapterSizeOfGrid);
-        gridSizeSpinner.setOnItemSelectedListener(this);
+        gridSizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (parent.getId()) {
+                    case R.id.idSizeOfGrid:
+                        setGridSize(gridSizeSpinner.getSelectedItem().toString());
+                        gridSizeSpinner.setSelection(position);
+                        if (customSwitch.isChecked()) {
+                            customSwitch.performClick();
+                        }
+                        //onCheckedChanged(customSwitch, false);
+                        editor.remove("GameMode");
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         customSwitch = findViewById(R.id.CustomSwitch);
         //https://stackoverflow.com/questions/10057328/cant-set-oncheckedchangelistener-to-a-checkbox
@@ -179,35 +223,6 @@ public class MainMenu extends AppCompatActivity {
         }
         editor.putInt("GridSize", gridSize);
 
-    }
-
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        switch (adapterView.getId()) {
-            case R.id.idNumOfColours:
-                setColourAmount(colourSpinner.getSelectedItem().toString());
-                colourSpinner.setSelection(i);
-                if (customSwitch.isChecked()) {
-                    customSwitch.performClick();
-                }
-                onCheckedChanged(customSwitch, false);
-                editor.remove("GameMode");
-                break;
-            case R.id.idSizeOfGrid:
-                setGridSize(gridSizeSpinner.getSelectedItem().toString());
-                gridSizeSpinner.setSelection(i);
-                if (customSwitch.isChecked()) {
-                    customSwitch.performClick();
-                }
-                onCheckedChanged(customSwitch, false);
-                editor.remove("GameMode");
-                break;
-        }
     }
 }
 
