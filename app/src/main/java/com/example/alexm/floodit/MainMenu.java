@@ -26,25 +26,22 @@ public class MainMenu extends AppCompatActivity {
     private int gridSize;
     private int numOfColours;
     private int gameMode;
-    private boolean gameModeSelected = false;
     private RadioButton radioBtnEasy;
     private RadioButton radioBtnMedium;
     private RadioButton radioBtnHard;
     private CompoundButton customSwitch;
     private String prefsFile = "FloodGamePrefs";
-    private SharedPreferences settings;
     private SharedPreferences.Editor editor;
-    private RadioGroup grpRadioButtons;
-
-
-    Spinner colourSpinner;
-    Spinner gridSizeSpinner;
+    SharedPreferences settings;
+    private Spinner colourSpinner;
+    private Spinner gridSizeSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         settings = getSharedPreferences(prefsFile, 0);
+
         editor = settings.edit();
 
         radioBtnEasy = findViewById(R.id.radioButtonEasyMode);
@@ -129,7 +126,7 @@ public class MainMenu extends AppCompatActivity {
 
         });
 
-        grpRadioButtons = findViewById(R.id.RadioButtonGroup);
+        RadioGroup grpRadioButtons = findViewById(R.id.RadioButtonGroup);
         grpRadioButtons.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             //https://developer.android.com/guide/topics/ui/controls/radiobutton.html
             @Override
@@ -148,10 +145,11 @@ public class MainMenu extends AppCompatActivity {
                 }
                 editor.remove("GridSize");
                 editor.remove("Colours");
+
             }
         });
 
-        //maybe put here set spinner selection to 0
+        //TODO maybe put here set spinner selection to 0
 
 
     }
@@ -160,24 +158,26 @@ public class MainMenu extends AppCompatActivity {
     public void onItem(View view) {
         //In this method, we get the settings options from the main menu and pass them through to the game activity
         if (view.getId() == R.id.startGameBtn) {
-            Intent intent = new Intent(getBaseContext(), Game.class);
-            editor.commit();
-            startActivity(intent);
+            boolean customModeSelected = settings.getBoolean("CustomMode",false);
+            if (!customModeSelected && gridSize == 0 || numOfColours == 0){
+                Toast.makeText(getApplicationContext(), "Please select a game mode or select both a grid size and colours.",
+                        Toast.LENGTH_SHORT).show();
+            }else {
+                Intent intent = new Intent(getBaseContext(), Game.class);
+                editor.commit();
+                startActivity(intent);
+            }
         } else if (view.getId() == R.id.highSoresBtn) {
             Intent intent = new Intent(this, LeaderBoard.class);
             startActivity(intent);
         } else if (view.getId() == R.id.rulesBtn) {
             Intent intent = new Intent(this, Rules.class);
             startActivity(intent);
-        } else {
-            Toast.makeText(getApplicationContext(), "Could not find the buttons, something went wrong.",
-                    Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private void setGameMode(String gameModeName) {
-        gameModeSelected = true;
         switch (gameModeName) {
             case "Easy":
                 gameMode = 10;
@@ -189,9 +189,9 @@ public class MainMenu extends AppCompatActivity {
                 gameMode = 20;
                 break;
             case "Game Mode":
-                gameModeSelected = false;
         }
         editor.putInt("GameMode", gameMode);
+        editor.putBoolean("CustomMode", false);
     }
 
     private void setColourAmount(String colourAmount) {
@@ -207,6 +207,7 @@ public class MainMenu extends AppCompatActivity {
                 break;
         }
         editor.putInt("Colours", numOfColours);
+        editor.putBoolean("CustomMode",true);
     }
 
     private void setGridSize(String gridSizeName) {
@@ -222,6 +223,7 @@ public class MainMenu extends AppCompatActivity {
                 break;
         }
         editor.putInt("GridSize", gridSize);
+        editor.putBoolean("CustomMode",true);
 
     }
 }

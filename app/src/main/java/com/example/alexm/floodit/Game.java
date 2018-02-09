@@ -32,21 +32,25 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
     private TextView playerTextView;
     private boolean[][] visited;
 
+    String playerName;
+    int gridSize;
+    int gameMode;
+    int colours;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_game);
 
-        int colours = getIntent().getIntExtra("Colours", 0);
-        int gridSize = getIntent().getIntExtra("GridSize", 0);
-
-        int gameMode = getIntent().getIntExtra("GameMode", 0);
 
 
         String prefsFile = "FloodGamePrefs";
         SharedPreferences settings = getSharedPreferences(prefsFile, 0);
-        String playerName = settings.getString("PlayerName", "Player 1");
 
+        playerName = settings.getString("PlayerName", "Player 1");
+        gridSize = settings.getInt("GridSize", 0);
+        gameMode = settings.getInt("GameMode",0 );
+        colours = settings.getInt("Colours",0);
 
         if (gameMode == 0 && colours == 0 && gridSize ==0) {
             grid = new int[20][20];
@@ -54,7 +58,8 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
             setContentView(R.layout.sm_activity_game);
             textView = findViewById(R.id.smRoundsRemainingTextView);
         }
-        else if (gameMode != 0) {
+        //if either
+        else if (gridSize == 0 || colours == 0) {
             grid = new int[gameMode][gameMode];
             visited = new boolean[gameMode][gameMode];
             switch(gameMode){
@@ -74,7 +79,8 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
                     roundMode = 3;
                     break;
             }
-        } else {
+            //TODO make sure this block of code checks to see what the settings are and runs them correctly.
+        } else if (){
             grid = new int[gridSize][gridSize];
             visited = new boolean[gridSize][gridSize];
             switch (colours) {
