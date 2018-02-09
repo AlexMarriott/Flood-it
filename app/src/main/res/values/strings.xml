@@ -31,14 +31,6 @@
     <string name="grey">Grey</string>
     <string name="start_a_game">Start A Game</string>
 
-
-    <string-array name="game_spinner">
-        <item>Game Mode</item>
-        <item>Easy</item>
-        <item>Medium</item>
-        <item>Hard</item>
-    </string-array>
-
     <string-array name="numOfColours">
         <item>Number of Colours</item>
         <item>4</item>

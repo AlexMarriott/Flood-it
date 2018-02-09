@@ -20,32 +20,89 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="214dp"
+        android:layout_height="203dp"
         android:layout_weight="1"
         android:background="@color/grey"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context="com.example.alexm.floodit.MainMenu"
         tools:showIn="@layout/activity_main_menu">
 
 
-        <Spinner
-            android:id="@+id/idGameSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/grey"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context="com.example.alexm.floodit.MainMenu"
+            tools:showIn="@layout/activity_main_menu">
 
-        <Spinner
-            android:id="@+id/idSizeOfGrid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
-        <Spinner
-            android:id="@+id/idNumOfColours"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <Spinner
+                android:id="@+id/idSizeOfGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/idNumOfColours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/grey"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context="com.example.alexm.floodit.MainMenu"
+            tools:showIn="@layout/activity_main_menu">
+
+
+            <Switch
+                android:id="@+id/CustomSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Custom Settings"
+                android:textOff="Custom"
+                android:textOn="Custom"
+                tools:checked="false" />
+
+            <RadioGroup
+                android:id="@+id/RadioButtonGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/radioButtonEasyMode">
+
+                <RadioButton
+                    android:id="@+id/radioButtonEasyMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Easy"
+                    android:visibility="invisible" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonMediumMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Medium"
+                    android:visibility="invisible" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonHardMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hard"
+                    android:visibility="invisible" />
+            </RadioGroup>
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

@@ -1,6 +1,7 @@
 package com.example.alexm.floodit;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +42,10 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
 
         int gameMode = getIntent().getIntExtra("GameMode", 0);
 
-        String playername = getIntent().getStringExtra("PlayerName");
+
+        String prefsFile = "FloodGamePrefs";
+        SharedPreferences settings = getSharedPreferences(prefsFile, 0);
+        String playerName = settings.getString("PlayerName", "Player 1");
 
 
         if (gameMode == 0 && colours == 0 && gridSize ==0) {
@@ -116,7 +120,7 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
         textView.setText(String.valueOf(gameSettings.getRound()));
 
         playerTextView = findViewById(R.id.PlayerNameTextView);
-        playerTextView.setText(playername);
+        playerTextView.setText(playerName);
     gridView.getHolder().addCallback(this);
     }
 

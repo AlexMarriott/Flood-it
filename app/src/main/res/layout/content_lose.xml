@@ -31,5 +31,67 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <TextView
+        android:id="@+id/winScore2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/winPlayerScore"
+        android:layout_alignLeft="@+id/winName"
+        android:layout_alignStart="@+id/winName"
+        android:text="Score" />
+
+    <TextView
+        android:id="@+id/winName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/winPlayerName"
+        android:layout_alignBottom="@+id/winPlayerName"
+        android:layout_marginLeft="86dp"
+        android:layout_marginStart="86dp"
+        android:layout_toEndOf="@+id/winPlayerRounds"
+        android:layout_toRightOf="@+id/winPlayerRounds"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/winPlayerScore2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/winPlayerName"
+        android:layout_alignStart="@+id/winPlayerName"
+        android:layout_below="@+id/winPlayerName"
+        android:layout_marginTop="33dp"
+        android:text="Score" />
+
+    <TextView
+        android:id="@+id/winRounds2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/winScore"
+        android:layout_alignStart="@+id/winScore"
+        android:layout_alignTop="@+id/winPlayerRounds"
+        android:text="Rounds" />
+
+    <TextView
+        android:id="@+id/winPlayerName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imgWinner"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="23dp"
+        android:text="Player Name" />
+
+    <TextView
+        android:id="@+id/winPlayerRounds2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnReturnToMenu"
+        android:layout_alignLeft="@+id/winPlayerScore"
+        android:layout_alignStart="@+id/winPlayerScore"
+        android:layout_marginBottom="30dp"
+        android:text="Rounds Remaining" />
+
 </RelativeLayout>
 
