@@ -1,6 +1,7 @@
 package com.example.alexm.floodit;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,12 +30,18 @@ public class StartScreen extends AppCompatActivity {
             Intent intent = new Intent(getBaseContext(), MainMenu.class);
             EditText editext = findViewById(R.id.editText);
             String playername = editext.getText().toString();
-            intent.putExtra("PlayerName", playername);
+            String prefsFile = "FloodGamePrefs";
+            SharedPreferences settings = getSharedPreferences(prefsFile, 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("PlayerName", playername);
+            editor.commit();
             startActivity(intent);
         } else {
             Toast.makeText(getApplicationContext(), "Could not find the buttons, something went wrong.",
                     Toast.LENGTH_SHORT).show();
         }
+        onStop();
 
     }
+
 }

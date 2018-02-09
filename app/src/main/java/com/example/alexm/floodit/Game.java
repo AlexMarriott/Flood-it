@@ -148,7 +148,6 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         gridView.repaint(gameSettings.getGrid(), gameSettings.getVisited());
-
     }
 
     @Override

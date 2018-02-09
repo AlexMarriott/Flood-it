@@ -17,6 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="19dp"
         android:layout_weight="1"
+        android:onClick="onItem"
         android:text="@string/return_to_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

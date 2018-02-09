@@ -87,11 +87,9 @@ public class GameLogic {
         }
     }
 
-
     //Created own random because the standard built in random for java is bad.
      int random(int min, int max) {
         return (int) (min + (Math.random() * max));
-
     }
 
     /**
