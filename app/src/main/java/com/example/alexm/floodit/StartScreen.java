@@ -29,11 +29,14 @@ public class StartScreen extends AppCompatActivity {
         if (view.getId() == R.id.startGameBtn) {
             Intent intent = new Intent(getBaseContext(), MainMenu.class);
             EditText editext = findViewById(R.id.editText);
-            String playername = editext.getText().toString();
+            String playerName = editext.getText().toString();
             String prefsFile = "FloodGamePrefs";
             SharedPreferences settings = getSharedPreferences(prefsFile, 0);
             SharedPreferences.Editor editor = settings.edit();
-            editor.putString("PlayerName", playername);
+            if (playerName == null){
+                playerName = "Anno";
+            }
+            editor.putString("PlayerName", playerName);
             editor.commit();
             startActivity(intent);
         } else {

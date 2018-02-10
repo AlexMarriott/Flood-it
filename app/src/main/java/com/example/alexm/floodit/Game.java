@@ -32,10 +32,10 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
     private TextView playerTextView;
     private boolean[][] visited;
 
-    String playerName;
-    int gridSize;
-    int gameMode;
-    int colours;
+    private String playerName;
+    private int gridSize;
+    private int gameMode;
+    private int colours;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
         String prefsFile = "FloodGamePrefs";
         SharedPreferences settings = getSharedPreferences(prefsFile, 0);
 
-        playerName = settings.getString("PlayerName", "Player 1");
+        playerName = settings.getString("PlayerName", "Anno");
         gridSize = settings.getInt("GridSize", 0);
         gameMode = settings.getInt("GameMode",0 );
         colours = settings.getInt("Colours",0);
@@ -57,6 +57,7 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
             visited = new boolean[20][20];
             setContentView(R.layout.sm_activity_game);
             textView = findViewById(R.id.smRoundsRemainingTextView);
+            roundMode = gameSettings.random(1,3);
         }
         //if either
         else if (gridSize == 0 || colours == 0) {
@@ -71,33 +72,44 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
                 case 15:
                     setContentView(R.layout.md_activity_game);
                     textView = findViewById(R.id.mdRoundsRemainingTextView);
-                    roundMode = 2;
+                    roundMode = 3;
                     break;
                 case 20:
                     setContentView(R.layout.larg_activity_game);
                     textView = findViewById(R.id.largRoundsRemainingTextView);
-                    roundMode = 3;
+                    roundMode = 5;
                     break;
             }
             //TODO make sure this block of code checks to see what the settings are and runs them correctly.
-        } else if (){
+        } else{
             grid = new int[gridSize][gridSize];
             visited = new boolean[gridSize][gridSize];
+            switch (gridSize){
+                case 10:
+                    roundMode = 1;
+                    break;
+                case 20:
+                    roundMode = 2;
+                    break;
+                case 30:
+                    roundMode = 3;
+                    break;
+            }
             switch (colours) {
                 case 4:
                     setContentView(R.layout.sm_activity_game);
                     textView = findViewById(R.id.smRoundsRemainingTextView);
-                    roundMode = 1;
+                    roundMode += 1;
                     break;
                 case 6:
                     setContentView(R.layout.md_activity_game);
                     textView = findViewById(R.id.mdRoundsRemainingTextView);
-                    roundMode = 2;
+                    roundMode += 2;
                     break;
                 case 8:
                     setContentView(R.layout.larg_activity_game);
                     textView = findViewById(R.id.largRoundsRemainingTextView);
-                    roundMode = 3;
+                    roundMode += 3;
                     break;
             }
         }
@@ -120,7 +132,7 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
             }
         }
         gameSettings = new GameLogic(grid, visited, options);
-        roundMode = gameSettings.random(1,3);
+
         gameSettings.setRound(roundMode);
 
         textView.setText(String.valueOf(gameSettings.getRound()));

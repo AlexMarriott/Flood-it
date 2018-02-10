@@ -7,7 +7,7 @@ public class GameLogic {
     private static int[][] mgrid; //Default value of 15 (medium)
     private int roundMode = 0;
     private boolean[][] mvisited;
-    private final int[] roundCap = {20, 30, 40};
+    private final int[] roundCap = {20, 25, 30,35,40};
     private int roundTotal;
     private boolean hasWon = false;
 
@@ -57,13 +57,25 @@ public class GameLogic {
     }
 
     public void setRound(int gameMode) {
-
-        if (gameMode == 1) {
-            roundTotal = roundCap[0];
-        } else if (gameMode == 2) {
-            roundTotal = roundCap[1];
-        } else if (gameMode == 3) {
-            roundTotal = roundCap[2];
+        switch (gameMode){
+            case 1:
+                roundTotal = roundCap[0];
+                break;
+            case 2:
+                roundTotal = roundCap[1];
+                break;
+            case 3:
+                roundTotal = roundCap[2];
+                break;
+            case 4:
+                roundTotal = roundCap[3];
+                break;
+            case 5:
+                roundTotal = roundCap[4];
+                break;
+            case 6:
+                roundTotal = roundCap[5];
+                break;
         }
     }
 
