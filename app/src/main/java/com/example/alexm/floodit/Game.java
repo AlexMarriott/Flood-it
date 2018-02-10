@@ -36,7 +36,7 @@ public class Game extends AppCompatActivity implements SurfaceHolder.Callback {
     private int gridSize;
     private int gameMode;
     private int colours;
-
+//l
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
