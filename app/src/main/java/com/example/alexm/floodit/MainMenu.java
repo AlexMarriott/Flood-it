@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 /**
  * <h1>MainMenu</h1>
- * add a description of the class
+ * this is a test description
  *
  * @author Alex Marriott s4816928§
  * @version 1.0
