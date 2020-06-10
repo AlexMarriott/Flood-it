@@ -19,4 +19,7 @@ It makes uses of the of the "Flood Fill" algorithm to fill the select tiles on t
  ![Floodit Logic](images/Floodit_Logic.png)
 
 ## Class Diagram Floodit
- ![Class Diagram Floodit](images/Class_diagram_Floodit.png) 
+ ![Class Diagram Floodit](images/Class_diagram_Floodit.png)
+
+## View project
+[See the Floodit project on github!](https://github.com/AlexMarriott/floodit
