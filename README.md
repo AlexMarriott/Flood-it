@@ -1,8 +1,10 @@
 # Flood It
 
-Flood it is a tile based game where the player must match all tiles on teh baord with the same colour. 
-This application was created for my second year application programming unit using Andorid studo. 
-This is a Andorid based game written in Java.
+Flood it is a tile based game where the player must match all tiles on the board with the same colour. 
+
+This application was created for my second year application programming unit using Android studio. 
+
+This is a Android based game written in Java.
 
 It makes uses of the of the "Flood Fill" algorithm to fill the select tiles on the board. 
 
