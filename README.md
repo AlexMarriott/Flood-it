@@ -8,20 +8,8 @@ This is a Android based game written in Java.
 
 It makes uses of the of the "Flood Fill" algorithm to fill the select tiles on the board. 
 
-## Game screen
- ![game screen](images/gamescreen.png)
-
-## Main menus
- ![Main menus](images/mainmenu.png) 
-
-## Flow Digram
- ![Flow Digram](images/flowdiagramfloodit.png) 
-
-## Floodit Logic
- ![Floodit Logic](images/Floodit_Logic.png)
-
-## Class Diagram Floodit
- ![Class Diagram Floodit](images/Class_diagram_Floodit.png)
+## Game screen & Main menu
+ ![game screen](images/gamescreen.png) ![Main menus](images/mainmenu.png) 
 
 ## View project
 [See the Floodit project on github!](https://github.com/AlexMarriott/floodit)
